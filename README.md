@@ -1,6 +1,7 @@
 # test-mirroring
 
 test
+test
 
 ## Getting started
 

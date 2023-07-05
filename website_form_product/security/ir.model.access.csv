@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_related_question,product_related_question,model_product_related_question,base.group_user,1,1,1,1
+access_portal_product_related_question,portal_product_related_question,model_product_related_question,,1,0,0,0
+access_product_related_question_answer,product_related_question_answer,model_product_related_question_answer,base.group_user,1,1,1,1
+access_product_product_related_question_line,product_product_related_question_line,model_product_product_related_question_line,base.group_user,1,1,1,1

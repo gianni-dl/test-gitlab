@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_related_question_view_tree" model="ir.ui.view">
+        <field name="name">product.related.question.tree</field>
+        <field name="model">product.related.question</field>
+        <field name="arch" type="xml">
+            <tree string="Product Related Questions">
+                <field name="name" />
+                <field name="input_select_type" />
+                <field name="answer_ids" widget="many2many_tags" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_related_question_view_form" model="ir.ui.view">
+        <field name="name">product.related.question.form</field>
+        <field name="model">product.related.question</field>
+        <field name="arch" type="xml">
+            <form string="Product Related Questions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <field name="input_select_type" widget="radio" />
+                    <notebook>
+                        <page string="Answers" name="answers">
+                            <field name="answer_ids" widget="one2many" nolabel="1">
+                                <tree string="Answers" editable="bottom">
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_related_question" model="ir.actions.act_window">
+        <field name="name">Related Questions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.related.question</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_product_related_question"
+        name="Related Questions"
+        parent="sale.menu_sale_config"
+        action="action_product_related_question"
+        sequence="40"
+    />
+
+</odoo>

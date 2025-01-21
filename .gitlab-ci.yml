@@ -8,8 +8,13 @@ push_to_github:
   stage: deploy
 
   script:
-    - git clone https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@${GITHUB_URL} github-repo
-    - cd github-repo
+    - git config --global user.email "gianni.deleeuw@gumbys.be"
+    - git config --global user.name "Gianni De Leeuw"
+    - git remote add -f github https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@${GITHUB_URL}
+    - git fetch github ${STAGING_BRANCH}
     - git checkout -b ${STAGING_BRANCH}
+    - git merge ${STAGING_BRANCH} github/${STAGING_BRANCH} --no-edit
+    - git push github ${STAGING_BRANCH}
+
   rules:
     - if: $CI_COMMIT_BRANCH == "staging"

@@ -11,6 +11,5 @@ push_to_github:
     - git clone https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@${GITHUB_URL} github-repo
     - cd github-repo
     - git checkout -b ${STAGING_BRANCH}
-    - ls -la
   rules:
     - if: $CI_COMMIT_BRANCH == "staging"
